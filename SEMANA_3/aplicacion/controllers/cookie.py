@@ -1,11 +1,10 @@
-
 import web
 from datetime import datetime
 class Cookie:
     def GET(self, nombre):
         try:
           cookie = web.cookies() 
-          now = datetime.now() #variable fecha y hora
+          fh = datetime.now() #variable fecha y hora
           visitas = "0"
           print(cookie)
           
@@ -23,6 +22,6 @@ class Cookie:
             web.setcookie("visitas", str(1), expires="", domain=None) 
             visitas = "1" 
           
-          return "Cookie:"+" "+" Visitas: " + str(visitas) + "," " "+ "Nombre: " + nombre + "," + " " + "Fecha y Hora Actual: " + str(now)
+          return "Cookie:"+" "+" Visitas: " + str(visitas) + "," " "+ "Nombre: " + nombre + "," + " " + "Fecha y Hora Actual: " + str(fh)
         except Exception as e:
               return "¡Error!" + str(e.args)
